@@ -1,0 +1,12 @@
+.container {
+  height: 100vh;
+}
+
+.border {
+  border: 2px solid #111a94 !important;
+}
+
+.letras {
+  font-family: roboto, sans-serif;
+  color: #111a94 !important;
+}

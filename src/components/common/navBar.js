@@ -23,9 +23,14 @@ const NavBar = () => {
           <p>
             Bienvenido {state?.usuario.nombre}
             {!!state.auth ? (
-              <Link to={`/profile/${state.usuario.id}`} className="px-3">
-                MI Perfil
-              </Link>
+              <>
+                <Link to="/products" className="px-3 link">
+                  Productos
+                </Link>
+                <Link to={`/profile/${state.usuario.id}`} className="px-3 link">
+                  MI Perfil
+                </Link>
+              </>
             ) : null}
           </p>
         </Col>

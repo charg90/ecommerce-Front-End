@@ -1,0 +1,9 @@
+.contenedor {
+  height: 100vh;
+  background-color: #e8e8e8;
+}
+
+.letras {
+  font-family: roboto, sans-serif;
+  color: #2d3277;
+}

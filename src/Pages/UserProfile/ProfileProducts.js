@@ -20,7 +20,7 @@ const ProfileProducts = ({
   };
   return (
     <Col md={4}>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "20rem", height: "15rem" }}>
         <Card.Body>
           <Card.Title>{nombre}</Card.Title>
           <Card.Title>precio:{precio}$</Card.Title>

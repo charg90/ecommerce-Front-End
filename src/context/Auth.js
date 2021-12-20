@@ -23,11 +23,14 @@ export const AuthProvider = ({ children }) => {
       const usuario = data.data.usuario;
       window.localStorage.setItem("token", JSON.stringify(token));
       dispatch({ type: "FETCH_SUCCESS", payload: { token, usuario } });
+
+      return data;
     } catch (err) {
       console.log(err);
       dispatch({
         type: "FETCH_ERROR",
       });
+      return err;
     }
 
     //setear el storage

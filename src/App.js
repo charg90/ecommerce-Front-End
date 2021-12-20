@@ -13,6 +13,7 @@ import SingleProduct from "./Pages/SingleProduct";
 import Verify from "./Pages/Verify";
 import UserProfile from "./Pages/UserProfile";
 import ProductoNuevo from "./Pages/ProductoNuevo";
+import Footer from "./components/common/Footer";
 import { AuthProvider } from "./context/Auth";
 import { ProductProvider } from "./context/Product";
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/productoNuevo" element={<ProductoNuevo />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          <Footer />
         </Router>
       </ProductProvider>
     </AuthProvider>

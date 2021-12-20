@@ -27,8 +27,8 @@ const ProductoNuevo = () => {
   };
   return (
     <Container>
-      <Row>
-        <Col md={6}>
+      <Row className="d-flex justify-content-center mt-5">
+        <Col md={6} className="text-center">
           <Form>
             <Form.Group>
               <Form.Label>Nombre</Form.Label>
@@ -58,7 +58,9 @@ const ProductoNuevo = () => {
                 {...register("descripcion")}
               />
             </Form.Group>
-            <Button onClick={handleSubmit(submitForm)}>Agregar</Button>
+            <Button onClick={handleSubmit(submitForm)} className="mt-2">
+              Agregar
+            </Button>
           </Form>
         </Col>
       </Row>

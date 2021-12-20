@@ -2,6 +2,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { newUser } from "./../../customHooks/newUser";
 import { useNavigate } from "react-router-dom";
+import "./register.css";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
@@ -17,8 +18,8 @@ const Register = () => {
     navigate("/login");
   };
   return (
-    <Container>
-      <Row>
+    <Container className=" ">
+      <Row className="d-flex justify-content-center mt-5">
         <Col md={6}>
           <Form onSubmit={handleSubmit(submitForm)}>
             <Form.Group>

@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import ProfileProducts from "./ProfileProducts";
 import { ProductsContext } from "../../context/Product";
-
+import "./userProfile.css";
 const UserProfile = () => {
   const navigate = useNavigate();
   const { state } = useContext(AuthContext);
@@ -31,21 +31,21 @@ const UserProfile = () => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col md={5}>
+    <Container className="container">
+      <Row className="mt-5 border letras">
+        <Col md={5} className="d-flex align-items-center">
           <p>image</p>
         </Col>
         <Col md={5}>
           <p>nombre:{state.usuario.nombre}</p>
           <p>email:{state.usuario.email}</p>
         </Col>
-        <Col md={2}>
+        <Col md={2} className="d-flex align-items-center">
           <Button onClick={createProduct}>Vender YA</Button>
         </Col>
       </Row>
 
-      <Row className="mt-5 justify-content-center">
+      <Row className="mt-5 d-flex justify-content-center letras">
         {articulos?.map((p) => (
           <ProfileProducts {...p} key={p.id} eliminateProduct={deleteProduct} />
         ))}

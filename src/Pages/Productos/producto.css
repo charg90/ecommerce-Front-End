@@ -1,0 +1,8 @@
+.letras {
+  font-family: roboto, sans-serif;
+  color: #2d3277;
+}
+
+.letras:hover {
+  color: #5b64d6;
+}
