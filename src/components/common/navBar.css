@@ -16,3 +16,8 @@
 .link:hover {
   text-decoration: underline;
 }
+
+.iconLetter {
+  font-family: "Press Start 2p", "Courier New", Courier, monospace;
+  font-size: 1.5em;
+}

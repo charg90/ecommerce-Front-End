@@ -2,9 +2,9 @@ import { Container, Row, Carousel, Col } from "react-bootstrap";
 import "./home.css";
 const Home = () => {
   return (
-    <Container fluid className="body   ">
+    <Container fluid className="body  px-0   ">
       <Row>
-        <Col md={12}>
+        <Col md={12} clasName="column">
           <Carousel>
             <Carousel.Item>
               <img
@@ -49,21 +49,21 @@ const Home = () => {
       <Row className="mt-5 box  w-75     ">
         <Col
           md={4}
-          className=" d-flex  align-items-center justify-content-center  "
+          className=" d-flex  align-items-center justify-content-center column  "
         >
           <i className="far fa-credit-card fa-2x  text-center "></i>
           <p className="icon mr-2 px-2">Aceptamos tarjetas Credito</p>
         </Col>
         <Col
           md={4}
-          className="d-flex  align-items-center justify-content-center"
+          className="d-flex  align-items-center justify-content-center column"
         >
           <i className="far fa-credit-card fa-2x "></i>
           <p className="icon text-center px-2">Aceptamos tarjetas Debito</p>
         </Col>
         <Col
           md={4}
-          className="d-flex  align-items-center justify-content-center"
+          className="d-flex  align-items-center justify-content-center column"
         >
           <i className="fas fa-money-bill-wave-alt fa-2x  "></i>
           <p className="icon text-center  px-2">Aceptamos Efectivo</p>

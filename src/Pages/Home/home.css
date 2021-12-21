@@ -7,12 +7,13 @@
   color: #2d3277;
   font-family: roboto, sans-serif;
 }
-.col {
+.column {
   background-color: #ffe600;
 }
 .body {
   background-color: #e8e8e8;
   height: 100vh;
+  overflow-x: hidden !important;
 }
 .box {
   background-color: white;

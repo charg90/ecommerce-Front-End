@@ -5,7 +5,8 @@ export const newUser = async (endpoint, obj) => {
   console.log(obj);
   try {
     const user = await axios.post(`${BASE_URl}/${endpoint}`, obj);
-    console.log(user);
+
+    return user;
   } catch (err) {
     console.log(err);
   }

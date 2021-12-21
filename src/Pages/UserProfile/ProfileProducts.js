@@ -11,7 +11,7 @@ const ProfileProducts = ({
   productos,
 }) => {
   const { state } = useContext(ProductsContext);
-  console.log(state);
+
   const [show, setShow] = useState(false);
   const handlerUpdateModal = () => setShow(true);
   const handlerHideModal = () => setShow(false);

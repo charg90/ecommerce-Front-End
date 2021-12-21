@@ -3,11 +3,19 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "./../../context/Auth";
 import { useNavigate } from "react-router-dom";
+import { schema } from "./schema";
+import { yupResolver } from "@hookform/resolvers/yup";
 import "./login.css";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   const { authenticate } = useContext(AuthContext);
   let navigate = useNavigate();
 
@@ -38,6 +46,9 @@ const Login = () => {
                 name="email"
                 {...register("email")}
               />
+              {errors.email && (
+                <span className="text-danger">Correo no valido</span>
+              )}
             </Form.Group>
             <Form.Group>
               <Form.Label>Password:</Form.Label>
@@ -47,6 +58,9 @@ const Login = () => {
                 name="password"
                 {...register("password")}
               />
+              {errors.password && (
+                <span className="text-danger">password requerido</span>
+              )}
             </Form.Group>
             <Button type="submit" className="mt-2">
               Ingresar

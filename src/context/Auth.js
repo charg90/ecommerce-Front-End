@@ -14,7 +14,7 @@ const { Provider } = AuthContext;
 
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
-  console.log(state);
+
   const authenticate = async (obj) => {
     try {
       const data = await axios.post(`${BASE_URl}/login`, obj);

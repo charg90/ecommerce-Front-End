@@ -14,7 +14,7 @@ const UserProfile = () => {
     products,
     eliminateProduct,
   } = useContext(ProductsContext);
-  console.log(productos);
+
   const { id } = useParams();
 
   const articulos = productos.products;
