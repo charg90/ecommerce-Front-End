@@ -25,15 +25,16 @@ export function productsReducer(state = initialState, action) {
         errors: false,
       };
     case FETCH_ELIMINATE:
+      let newData = state.products.filter((p) => p.id !== action.payload);
       return {
         fetching: false,
-        products: action.payload.data,
+        products: newData,
         error: false,
       };
     case FETCH_CREATE:
       return {
         fetching: false,
-        products: action.payload.data,
+        products: [...state.products, action.payload],
         errors: false,
       };
     default:

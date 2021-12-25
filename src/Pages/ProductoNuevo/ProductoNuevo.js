@@ -19,7 +19,7 @@ const ProductoNuevo = () => {
       const producto = await addData(state.products, data, token);
       console.log(producto);
       if (producto.status === 200) {
-        navigate("/");
+        navigate("/products");
       }
     } catch (err) {
       console.log(err);

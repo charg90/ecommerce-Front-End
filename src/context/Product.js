@@ -29,13 +29,14 @@ export const ProductProvider = ({ children }) => {
 
   const eliminateProduct = async (state, id, token) => {
     const newToken = JSON.parse(token);
-    console.log(newToken);
+    const { productos } = state;
 
     try {
       dispatch({
         type: "FETCH_ELIMINATE",
-        payload: { data: state.products.filter((p) => p.id !== id) },
+        payload: id,
       });
+
       const deleteProduct = await axios.patch(`${BASE_URl}/productos/${id}`, {
         headers: { Authorization: newToken },
         content_type: "application/json",
@@ -62,11 +63,13 @@ export const ProductProvider = ({ children }) => {
 
   const addData = async (state, producto, token) => {
     const newToken = JSON.parse(token);
+    console.log(producto);
     try {
       dispatch({
         type: "FETCH_CREATE",
-        payload: { data: state.concat(producto) },
+        payload: producto,
       });
+
       const addProduct = await axios.post(`${BASE_URl}/productos`, producto, {
         headers: { Authorization: newToken },
         content_type: "application/json",
