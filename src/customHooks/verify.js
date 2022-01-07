@@ -14,5 +14,5 @@ export const useVerify = (uid) => {
   };
   useEffect(() => {
     verify();
-  }, [uid]);
+  }, []);
 };

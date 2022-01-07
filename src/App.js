@@ -14,29 +14,31 @@ import Verify from "./Pages/Verify";
 import UserProfile from "./Pages/UserProfile";
 import ProductoNuevo from "./Pages/ProductoNuevo";
 import Footer from "./components/common/Footer";
-import { AuthProvider } from "./context/Auth";
-import { ProductProvider } from "./context/Product";
+import ProtectedRoutes from "./components/common/ProtectedRoutes/ProtectedRoutes";
+//redux
+import { Provider } from "react-redux";
+import store from "./store";
 function App() {
   return (
-    <AuthProvider>
-      <ProductProvider>
-        <Router>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/product/:id" element={<SingleProduct />} />
+    <Provider store={store}>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<SingleProduct />} />
+          <Route element={<ProtectedRoutes />}>
             <Route path="/profile/:id" element={<UserProfile />} />
-            <Route path="/verify/:uid" element={<Verify />} />
             <Route path="/productoNuevo" element={<ProductoNuevo />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </ProductProvider>
-    </AuthProvider>
+          </Route>
+          <Route path="/verify/:uid" element={<Verify />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 

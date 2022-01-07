@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <Container fluid className="body  px-0   ">
       <Row>
-        <Col md={12} clasName="column">
+        <Col md={12} className="column">
           <Carousel>
             <Carousel.Item>
               <img

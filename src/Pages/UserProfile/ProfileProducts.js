@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { ProductsContext } from "./../../context/Product";
 import ModalUpdate from "../../components/common/ModalUpdate";
 import { Col, Card, Button } from "react-bootstrap";
 const ProfileProducts = ({
@@ -10,8 +9,6 @@ const ProfileProducts = ({
   eliminateProduct,
   productos,
 }) => {
-  const { state } = useContext(ProductsContext);
-
   const [show, setShow] = useState(false);
   const handlerUpdateModal = () => setShow(true);
   const handlerHideModal = () => setShow(false);

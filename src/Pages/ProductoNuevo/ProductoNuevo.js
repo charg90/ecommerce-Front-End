@@ -1,30 +1,15 @@
 import { useContext } from "react";
-import { ProductsContext } from "../../context/Product";
-import { AuthContext } from "./../../context/Auth";
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const ProductoNuevo = () => {
-  const { state: usuario } = useContext(AuthContext);
-  const { state, addData } = useContext(ProductsContext);
   const { register, handleSubmit } = useForm();
-  const id = usuario.usuario.id;
+
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
-  const submitForm = async (data) => {
-    try {
-      data.usuario = id;
-      const producto = await addData(state.products, data, token);
-      console.log(producto);
-      if (producto.status === 200) {
-        navigate("/products");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const submitForm = async (data) => {};
   return (
     <Container>
       <Row className="d-flex justify-content-center mt-5">

@@ -1,11 +1,11 @@
+import React from "react";
+
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./../../context/Auth";
+
 import { Container, Row, Col } from "react-bootstrap";
 import { navBar, navItems, link } from "./navBar.css";
 const NavBar = () => {
-  const { state } = useContext(AuthContext);
-
   return (
     <Container fluid>
       <Row className="navBar d-flex align-items-center justify-content-around ">
@@ -23,19 +23,7 @@ const NavBar = () => {
           </Link>
         </Col>
         <Col md={3} className="navItems ">
-          <p>
-            Bienvenido {state?.usuario.nombre}
-            {!!state.auth ? (
-              <>
-                <Link to="/products" className="px-3 link">
-                  Productos
-                </Link>
-                <Link to={`/profile/${state.usuario.id}`} className="px-3 link">
-                  MI Perfil
-                </Link>
-              </>
-            ) : null}
-          </p>
+          <p>Bienvenido</p>
         </Col>
       </Row>
     </Container>

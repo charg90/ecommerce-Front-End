@@ -1,14 +1,10 @@
-import { useContext } from "react";
-
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { ProductsContext } from "../../../context/Product";
 import { useNavigate } from "react-router-dom";
 import { schema } from "./schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const ModalUpdate = ({ show, handlerHideModal, id }) => {
-  const { state: producto, updateData } = useContext(ProductsContext);
   const token = localStorage.getItem("token");
 
   const {
@@ -21,7 +17,6 @@ const ModalUpdate = ({ show, handlerHideModal, id }) => {
   const navigate = useNavigate();
   const submitForm = (data) => {
     console.log(`products/${id}`);
-    updateData(id, data, token);
     navigate(`/product/${id}`);
   };
 

@@ -1,14 +1,16 @@
-import { useContext, useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "./../../context/Auth";
 import { useNavigate } from "react-router-dom";
 import { schema } from "./schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./login.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAuth } from "../../store/slices/auth";
 
 const Login = () => {
-  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -16,23 +18,13 @@ const Login = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const { authenticate } = useContext(AuthContext);
-  let navigate = useNavigate();
 
-  const submitForm = async (data) => {
-    try {
-      const auth = await authenticate({
-        email: data.email,
-        password: data.password,
-      });
-      console.log(auth);
-      auth.status === 200
-        ? navigate("/products")
-        : setError("Mail o contraseña incorrectos");
-    } catch (err) {
-      console.log(err);
-    }
+  const submitForm = (data) => {
+    dispatch(getAuth(data));
   };
+  if (auth.token) {
+    navigate("/productos");
+  }
   return (
     <Container fluid className="contenedor">
       <Row className=" justify-content-center text-center">
@@ -67,7 +59,7 @@ const Login = () => {
             </Button>
           </Form>
         </Col>
-        <p className="text-danger">{error}</p>
+        <p className="text-danger"></p>
       </Row>
     </Container>
   );
