@@ -1,8 +1,15 @@
-import { Container, Row, Carousel, Col } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Carousel,
+  Col,
+  Card,
+  ListGroup,
+} from "react-bootstrap";
 import "./home.css";
 const Home = () => {
   return (
-    <Container fluid className="body  px-0   ">
+    <Container fluid className="body  px-0 mb-5  ">
       <Row>
         <Col md={12} className="column">
           <Carousel>
@@ -46,29 +53,27 @@ const Home = () => {
           </Carousel>
         </Col>
       </Row>
-      <Row className="mt-5 box  w-75     ">
-        <Col
-          md={4}
-          className=" d-flex  align-items-center justify-content-center column  "
-        >
-          <i className="far fa-credit-card fa-2x  text-center "></i>
-          <p className="icon mr-2 px-2">Aceptamos tarjetas Credito</p>
-        </Col>
-        <Col
-          md={4}
-          className="d-flex  align-items-center justify-content-center column"
-        >
-          <i className="far fa-credit-card fa-2x "></i>
-          <p className="icon text-center px-2">Aceptamos tarjetas Debito</p>
-        </Col>
-        <Col
-          md={4}
-          className="d-flex  align-items-center justify-content-center column"
-        >
-          <i className="fas fa-money-bill-wave-alt fa-2x  "></i>
-          <p className="icon text-center  px-2">Aceptamos Efectivo</p>
-        </Col>
-      </Row>
+      <Col className="d-flex justify-content-center">
+        <Card className="mt-5" style={{ width: "18rem" }}>
+          <Card.Header className="text-center">
+            Todos los medio de pago
+          </Card.Header>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <i className="fas fa-credit-card text-center px-2 fa-lg"></i>
+              <p className="d-inline">Tarjetas de credito</p>
+            </ListGroup.Item>
+            <ListGroup.Item className="">
+              <i className="fas fa-credit-card texte center px-2 fa-lg"></i>
+              <p className="d-inline text-center">Tarjetas de debito</p>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <i className="fas fa-dollar-sign text-center px-2 fa-lg"></i>
+              <p className="d-inline">Efectivo en nuestro locales</p>
+            </ListGroup.Item>
+          </ListGroup>
+        </Card>
+      </Col>
     </Container>
   );
 };

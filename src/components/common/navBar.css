@@ -1,6 +1,6 @@
-.navBar {
+.navBarBg {
   background-color: #ffe600;
-  height: 8vh;
+  padding-top: 0;
 }
 
 .navItems {
@@ -9,15 +9,21 @@
   font-size: 1.5em;
   color: #2d3277;
 }
-.link {
+.navLink {
   text-decoration: none;
-  color: #2d3277;
+  color: #2d3277 !important;
 }
-.link:hover {
+.navlink:hover {
   text-decoration: underline;
 }
 
-.iconLetter {
+.brandLetter {
   font-family: "Press Start 2p", "Courier New", Courier, monospace;
   font-size: 1.5em;
+  margin-left: 1rem !important;
+}
+
+.navButton {
+  background-color: #2d3277 !important;
+  color: white;
 }

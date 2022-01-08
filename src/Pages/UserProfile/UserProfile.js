@@ -1,17 +1,10 @@
-import { useContext, useEffect } from "react";
-
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 import "./userProfile.css";
 const UserProfile = () => {
   const navigate = useNavigate();
-
   const token = localStorage.getItem("token");
-
-  const { id } = useParams();
-
-  const deleteProduct = (id) => {};
 
   const createProduct = () => {
     navigate("/productoNuevo");

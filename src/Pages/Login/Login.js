@@ -22,9 +22,10 @@ const Login = () => {
   const submitForm = (data) => {
     dispatch(getAuth(data));
   };
-  if (auth.token) {
-    navigate("/productos");
+  if (!!auth.auth) {
+    navigate("/");
   }
+
   return (
     <Container fluid className="contenedor">
       <Row className=" justify-content-center text-center">
@@ -57,6 +58,9 @@ const Login = () => {
             <Button type="submit" className="mt-2">
               Ingresar
             </Button>
+            {auth.status === "error" && (
+              <p className="text-danger">Compruebe su email o contraseña</p>
+            )}
           </Form>
         </Col>
         <p className="text-danger"></p>

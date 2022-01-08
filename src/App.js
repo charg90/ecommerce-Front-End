@@ -7,7 +7,7 @@ import {
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Home from "./Pages/Home";
-import NavBar from "./components/common/navBar";
+import NavTop from "./components/common/navBar";
 import Products from "./Pages/Productos";
 import SingleProduct from "./Pages/SingleProduct";
 import Verify from "./Pages/Verify";
@@ -22,7 +22,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <NavBar />
+        <NavTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
