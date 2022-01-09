@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { productsReducer, initialState } from "./../reducer/products";
 import {
   FETCHING,
@@ -6,16 +6,17 @@ import {
   FETCH_ELIMINATE,
 } from "../reducer/actions/products";
 import axios from "axios";
-import { BASE_URl } from "./../constants/constants";
+import { BASE_URL } from "./../constants/constants";
 
-export const useFetch = (endpoint) => {
-  const token = window.localStorage.getItem(`token`);
+export const useGet = (endpoint, token = null) => {
+  const [data, setData] = useState("");
+  const jwt = window.localStorage.getItem(`token`);
   const newToken = JSON.parse(token);
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
   const fetchData = async () => {
     try {
-      const { data: result } = await axios.get(`${BASE_URl}/${endpoint}`, {
+      const { data: result } = await axios.get(`${BASE_URL}/${endpoint}`, {
         headers: { Authorization: newToken },
         content_type: "application/json",
       });
@@ -24,16 +25,18 @@ export const useFetch = (endpoint) => {
         type: FETCH_SUCCESS,
         payload: { data: result },
       });
+      setData(result);
     } catch (err) {
       console.log(err);
     }
+    return data;
   };
 
   useEffect(() => {
     fetchData();
   }, [endpoint]);
 
-  return [state];
+  return [state, data];
 };
 export const updateData = async (endpoint, id, data) => {
   const token = window.localStorage.getItem(`token`);
@@ -41,7 +44,7 @@ export const updateData = async (endpoint, id, data) => {
 
   try {
     const { data: result } = await axios.put(
-      `${BASE_URl}/${endpoint}/${id}`,
+      `${BASE_URL}/${endpoint}/${id}`,
       data,
       { headers: { Authorization: newToken }, content_type: "application/json" }
     );
@@ -56,7 +59,7 @@ export const useDeleteData = async (endpoint, id) => {
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
   try {
-    const data = await axios.delete(`${BASE_URl}/${endpoint}/${id}`, {
+    const data = await axios.delete(`${BASE_URL}/${endpoint}/${id}`, {
       headers: { Authorization: newToken },
       content_type: "application/json",
     });
@@ -69,4 +72,29 @@ export const useDeleteData = async (endpoint, id) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const usePost = (endpoint, obj) => {
+  /*
+  const token = window.localStorage.getItem(`token`);
+  const newToken = JSON.parse(token);
+  */
+  const [data, setData] = useState("");
+  const [error, setError] = useState("");
+  const postData = async () => {
+    try {
+      console.log(endpoint, obj);
+      const data = await axios.post(`${BASE_URL}/${endpoint}`, obj);
+      setData(data);
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    }
+    return data, error;
+  };
+  useEffect(() => {
+    postData();
+  }, [endpoint]);
+
+  return [data, error];
 };

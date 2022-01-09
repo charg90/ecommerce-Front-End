@@ -53,23 +53,25 @@ const Home = () => {
           </Carousel>
         </Col>
       </Row>
-      <Col className="d-flex justify-content-center">
-        <Card className="mt-5" style={{ width: "18rem" }}>
-          <Card.Header className="text-center">
+      <Col className="d-flex justify-content-center ">
+        <Card style={{ width: "18rem" }} className="shadows mt-5">
+          <Card.Header className="text-center iconHome">
             Todos los medio de pago
           </Card.Header>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <i className="fas fa-credit-card text-center px-2 fa-lg"></i>
-              <p className="d-inline">Tarjetas de credito</p>
+              <i className="fas fa-credit-card text-center px-2 fa-lg icons"></i>
+              <p className="d-inline iconHome">Tarjetas de credito</p>
             </ListGroup.Item>
             <ListGroup.Item className="">
-              <i className="fas fa-credit-card texte center px-2 fa-lg"></i>
-              <p className="d-inline text-center">Tarjetas de debito</p>
+              <i className="fas fa-credit-card texte center px-2 fa-lg icons"></i>
+              <p className="d-inline text-center iconHome">
+                Tarjetas de debito
+              </p>
             </ListGroup.Item>
             <ListGroup.Item>
-              <i className="fas fa-dollar-sign text-center px-2 fa-lg"></i>
-              <p className="d-inline">Efectivo en nuestro locales</p>
+              <i className="fas fa-dollar-sign text-center px-2 fa-lg icons"></i>
+              <p className="d-inline iconHome">Efectivo en nuestro locales</p>
             </ListGroup.Item>
           </ListGroup>
         </Card>

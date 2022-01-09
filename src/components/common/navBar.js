@@ -42,7 +42,7 @@ const NavTop = () => {
                 className="navLink"
               >
                 <NavDropdown.Item>
-                  <Link to="/profile/id" className="navLink">
+                  <Link to={`/profile/${auth.usuario.id}`} className="navLink">
                     Mi perfil
                   </Link>
                 </NavDropdown.Item>

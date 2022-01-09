@@ -1,16 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL, LOGIN } from "../../../constants/constants";
 
 export const getAuth = createAsyncThunk(
   "auth/getAuth",
   async (obj, { rejectWithValue }) => {
     try {
-      const data = await axios.post("http://localhost:4501/api/login", obj);
+      const data = await axios.post(`${BASE_URL}/${LOGIN}`, obj);
+
+      window.localStorage.setItem("jwt", JSON.stringify(data.data.token));
 
       return data;
     } catch (err) {
       console.log(err);
       if (err) {
+        console.log(err);
         return rejectWithValue(err);
       }
     }

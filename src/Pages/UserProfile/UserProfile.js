@@ -1,15 +1,22 @@
+import { useEffect } from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
-
+import { getProducts } from "./../../store/slices/products";
+import { useDispatch, useSelector } from "react-redux";
 import "./userProfile.css";
 const UserProfile = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
 
   const createProduct = () => {
-    navigate("/productoNuevo");
+    const jwt = localStorage.getItem("jwt");
+    const token = JSON.parse(jwt);
+    console.log(token);
   };
-
+  useEffect(() => {
+    dispatch(getProducts());
+  });
   return (
     <Container className="container">
       <Row className="mt-5 border letras">

@@ -1,13 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useFetch } from "./../../customHooks/HTTP";
+import { useGet } from "./../../customHooks/HTTP";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { PRODUCTS } from "./../../constants/constants";
 import "./singleproduct.css";
 const SingleProduct = () => {
   const { id } = useParams();
-  const [{ products: product }] = useFetch(`productos/${id}`);
-
-  console.log(product);
+  const [{ products: product }] = useGet(`${PRODUCTS}/${id}`);
 
   return (
     <Container fluid className="align-items-center contenedor ">

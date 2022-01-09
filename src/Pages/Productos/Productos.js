@@ -1,12 +1,11 @@
-import { useContext } from "react";
-
-import { useFetch } from "./../../customHooks/HTTP";
+import { useGet } from "./../../customHooks/HTTP";
 import { Container, Row } from "react-bootstrap";
 import Producto from "./Producto";
+import { PRODUCTS } from "./../../constants/constants";
 import "./productos.css";
 
 const Products = () => {
-  const [{ products }] = useFetch("productos");
+  const [{ products }] = useGet(PRODUCTS);
 
   return (
     <Container fluid className="contenedor">
