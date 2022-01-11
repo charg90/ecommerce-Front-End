@@ -1,5 +1,9 @@
-.container {
-  height: 100vh;
+.card {
+  height: 100%;
+}
+
+.card-title {
+  flex-grow: 1;
 }
 
 .border {

@@ -1,35 +1,38 @@
 import { useEffect } from "react";
-
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Card, Button } from "react-bootstrap";
 import { getProducts } from "./../../store/slices/products";
 import { useDispatch, useSelector } from "react-redux";
+import ProfileProducts from "./ProfileProducts";
 import "./userProfile.css";
 const UserProfile = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { producto } = useSelector((state) => state.products);
+  const { usuario } = useSelector((state) => state.auth);
 
-  const createProduct = () => {
-    const jwt = localStorage.getItem("jwt");
-    const token = JSON.parse(jwt);
-    console.log(token);
-  };
   useEffect(() => {
-    dispatch(getProducts());
-  });
+    dispatch(getProducts(id));
+  }, []);
   return (
-    <Container className="container">
-      <Row className="mt-5 border letras">
-        <Col md={5} className="d-flex align-items-center">
-          <p>image</p>
-        </Col>
-        <Col md={5}></Col>
-        <Col md={2} className="d-flex align-items-center">
-          <Button onClick={createProduct}>Vender YA</Button>
-        </Col>
+    <Container fluid className="container">
+      <Row className="mt-5 letras d-flex justify-content-around">
+        <Card style={{ width: "20rem" }} className="mb-4">
+          <Card.Body>
+            <Card.Title className="text-center">Mis Datos</Card.Title>
+
+            <Card.Text>nombre:{usuario.nombre}</Card.Text>
+            <Card.Text>email:{usuario.email}</Card.Text>
+          </Card.Body>
+        </Card>
       </Row>
 
-      <Row className="mt-5 d-flex justify-content-center letras"></Row>
+      <Row className="mt-5 d-flex justify-content-center letras">
+        {producto.map((p) => (
+          <ProfileProducts {...p} key={p.id} />
+        ))}
+      </Row>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ModalUpdate from "../../components/common/ModalUpdate";
 import { Col, Card, Button } from "react-bootstrap";
+import "./userProfile.css";
 const ProfileProducts = ({
   nombre,
   precio,
@@ -16,24 +17,23 @@ const ProfileProducts = ({
     eliminateProduct(id);
   };
   return (
-    <Col md={4}>
-      <Card style={{ width: "20rem", height: "15rem" }}>
+    <Col lg={3} md={4} sm={12}>
+      <Card className="mx-2 card d-flex">
         <Card.Body>
-          <Card.Title>{nombre}</Card.Title>
+          <Card.Title className="card-title">{nombre}</Card.Title>
           <Card.Title>precio:{precio}$</Card.Title>
           <Card.Title>descripcion:{descripcion}</Card.Title>
-
-          <Button
-            variant="outline-primary"
-            className="ml-5"
-            onClick={handlerUpdateModal}
-          >
-            Editar
-          </Button>
-          <Button variant="outline-danger" onClick={deleteProduct}>
-            Eliminar
-          </Button>
         </Card.Body>
+        <Button
+          variant="outline-primary"
+          className="ml-5"
+          onClick={handlerUpdateModal}
+        >
+          Editar
+        </Button>
+        <Button variant="outline-danger" onClick={deleteProduct}>
+          Eliminar
+        </Button>
       </Card>
       <ModalUpdate show={show} handlerHideModal={handlerHideModal} id={id} />
     </Col>
