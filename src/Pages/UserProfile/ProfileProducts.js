@@ -23,6 +23,7 @@ const ProfileProducts = ({
           <Card.Title className="card-title">{nombre}</Card.Title>
           <Card.Title>precio:{precio}$</Card.Title>
           <Card.Title>descripcion:{descripcion}</Card.Title>
+          <Button>Vender Ya</Button>
         </Card.Body>
         <Button
           variant="outline-primary"

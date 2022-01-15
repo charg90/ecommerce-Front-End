@@ -1,10 +1,11 @@
 import axios from "axios";
-import { BASE_URL } from "./../constants/constants";
+import { BASE_URL, USUARIOS } from "./../constants/constants";
 
-export const newUser = async (endpoint, obj) => {
+export const newUser = async (obj) => {
   console.log(obj);
   try {
-    const user = await axios.post(`${BASE_URL}/${endpoint}`, obj);
+    const user = await axios.post(`${BASE_URL}/${USUARIOS}`, obj);
+    console.log(user);
 
     return user;
   } catch (err) {
