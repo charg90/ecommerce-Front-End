@@ -31,6 +31,7 @@ const authSlice = createSlice({
       uuid: "",
       confirmacion: null,
       id: "",
+      img: "",
     },
     loading: false,
     status: null,

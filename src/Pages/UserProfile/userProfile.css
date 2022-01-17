@@ -14,3 +14,8 @@
   font-family: roboto, sans-serif;
   color: #111a94 !important;
 }
+
+.card {
+  width: 10 rem !important;
+  height: 10 rem !important;
+}

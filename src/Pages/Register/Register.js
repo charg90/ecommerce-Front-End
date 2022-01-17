@@ -9,8 +9,8 @@ import Axios from "axios";
 import "./register.css";
 
 const Register = () => {
-  const [show, setShow] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [response, setResponse] = useState("");
   let navigate = useNavigate();
   const {
     register,
@@ -33,7 +33,8 @@ const Register = () => {
         obj
       );
       console.log(info);
-      setImgUrl(info.secure_url);
+      console.log(info.url);
+      setImgUrl(info.url);
 
       const finalObj = {
         nombre: data.nombre,
@@ -42,7 +43,10 @@ const Register = () => {
         img: imgUrl,
       };
       const last = await newUser(finalObj);
-      console.log(last);
+
+      last
+        ? setResponse("en breve te llegara un mail para confimar ")
+        : setResponse("este mail ya esta registrado");
     } catch (err) {
       console.log(err);
     }
@@ -107,7 +111,7 @@ const Register = () => {
       </Row>
       <Row>
         <Col className="d-flex justify-content-center mt-5 show">
-          <p>{show}</p>
+          <p>{response}</p>
         </Col>
       </Row>
     </Container>

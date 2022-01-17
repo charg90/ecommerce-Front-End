@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Card, Button } from "react-bootstrap";
+import { Container, Row, Card, Button, Col, Image } from "react-bootstrap";
 import { getProducts } from "./../../store/slices/products";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileProducts from "./ProfileProducts";
@@ -16,16 +16,18 @@ const UserProfile = () => {
     dispatch(getProducts(id));
   }, []);
   return (
-    <Container fluid className="container">
-      <Row className="mt-5 letras d-flex justify-content-around">
-        <Card style={{ width: "20rem" }} className="mb-4">
-          <Card.Body>
-            <Card.Title className="text-center">Mis Datos</Card.Title>
-
-            <Card.Text>nombre:{usuario.nombre}</Card.Text>
-            <Card.Text>email:{usuario.email}</Card.Text>
-          </Card.Body>
-        </Card>
+    <Container className=" ">
+      <Row
+        className="mt-5 letras d-flex justify-content-around "
+        style={{ width: "25%" }}
+      >
+        <Col lg={6}>
+          <Image src={usuario.img} style={{ width: "6rem", height: "6rem" }} />
+          <p>imagen</p>
+        </Col>
+        <Col lg={6}>
+          <p>hola</p>
+        </Col>
       </Row>
 
       <Row className="mt-5 d-flex justify-content-center letras">
