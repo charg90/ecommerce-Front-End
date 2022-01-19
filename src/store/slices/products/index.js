@@ -29,6 +29,14 @@ export const productsSlice = createSlice({
     loading: false,
     status: null,
   },
+  reducers: {
+    addProduct: (state, { payload }) => {
+      console.log(state);
+      state.loading = false;
+      state.producto = [...state.producto, payload];
+      state.status = "success";
+    },
+  },
 
   extraReducers: {
     [getProducts.pending]: (state, action) => {
@@ -47,4 +55,5 @@ export const productsSlice = createSlice({
   },
 });
 
+export const { addProduct } = productsSlice.actions;
 export default productsSlice.reducer;

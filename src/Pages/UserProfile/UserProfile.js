@@ -12,21 +12,28 @@ const UserProfile = () => {
   const { producto } = useSelector((state) => state.products);
   const { usuario } = useSelector((state) => state.auth);
 
+  const handlerClick = () => {
+    console.log("clik");
+    navigate("/productoNuevo");
+  };
+
   useEffect(() => {
     dispatch(getProducts(id));
   }, []);
   return (
-    <Container className=" ">
-      <Row
-        className="mt-5 letras d-flex justify-content-around "
-        style={{ width: "25%" }}
-      >
-        <Col lg={6}>
-          <Image src={usuario.img} style={{ width: "6rem", height: "6rem" }} />
-          <p>imagen</p>
+    <Container className="d-flex justify-content-center align-items-center">
+      <Row className="mt-5 letras d-flex justify-content-center rowUserProfile">
+        <Col lg={6} md={4} sm={12} className=" d-flex ">
+          <Image src={usuario.img} className="imgUserProfile" />
         </Col>
-        <Col lg={6}>
-          <p>hola</p>
+        <Col lg={4} md={4} sm={12}>
+          <p>
+            Nombre:<span className="text-dark">{usuario.nombre}</span>
+          </p>
+          <p>
+            Email:<span className="text-dark">{usuario.email}</span>
+          </p>
+          <Button onClick={handlerClick}>Vender</Button>
         </Col>
       </Row>
 

@@ -8,11 +8,11 @@ const NavTop = () => {
   return (
     <Navbar sticky="top" expand="sm" className="navBarBg">
       <Navbar.Toggle className="" />
+      <Navbar.Brand className="brandLetter    " href="/">
+        MERCADO GAMER
+      </Navbar.Brand>
 
       <Navbar.Collapse>
-        <Navbar.Brand className="brandLetter    " href="/">
-          MERCADO GAMER
-        </Navbar.Brand>
         <div className="d-flex flex-column justify-content-center">
           <Nav>
             <Nav.Link>
