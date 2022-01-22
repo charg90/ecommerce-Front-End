@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Card, Button, Col, Image } from "react-bootstrap";
-import { getProducts } from "./../../store/slices/products";
+import { Container, Row, Button, Col, Image } from "react-bootstrap";
+import { getProducts, delProducts } from "./../../store/slices/products";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileProducts from "./ProfileProducts";
 import "./userProfile.css";
@@ -17,13 +17,18 @@ const UserProfile = () => {
     navigate("/productoNuevo");
   };
 
+  const eliminateProduct = (id) => {
+    console.log(id);
+    dispatch(delProducts(id));
+  };
+
   useEffect(() => {
     dispatch(getProducts(id));
   }, []);
   return (
-    <Container className="d-flex justify-content-center align-items-center">
-      <Row className="mt-5 letras d-flex justify-content-center rowUserProfile">
-        <Col lg={6} md={4} sm={12} className=" d-flex ">
+    <Container className="">
+      <Row className="mt-5 letras  rowUserProfile ">
+        <Col lg={6} md={4} sm={12} className="  ">
           <Image src={usuario.img} className="imgUserProfile" />
         </Col>
         <Col lg={4} md={4} sm={12}>
@@ -37,9 +42,13 @@ const UserProfile = () => {
         </Col>
       </Row>
 
-      <Row className="mt-5 d-flex justify-content-center letras">
+      <Row className="mt-5  justify-content-center letras">
         {producto.map((p) => (
-          <ProfileProducts {...p} key={p.id} />
+          <ProfileProducts
+            {...p}
+            key={p.id}
+            eliminateProduct={eliminateProduct}
+          />
         ))}
       </Row>
     </Container>

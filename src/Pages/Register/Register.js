@@ -9,7 +9,6 @@ import Axios from "axios";
 import "./register.css";
 
 const Register = () => {
-  const [imgUrl, setImgUrl] = useState("");
   const [response, setResponse] = useState("");
   let navigate = useNavigate();
   const {
@@ -32,15 +31,12 @@ const Register = () => {
         "https://api.cloudinary.com/v1_1/del3mby9y/image/upload",
         obj
       );
-      console.log(info);
-      console.log(info.url);
-      setImgUrl(info.url);
 
       const finalObj = {
         nombre: data.nombre,
         email: data.email,
         password: data.password,
-        img: imgUrl,
+        img: info.url,
       };
       const last = await newUser(finalObj);
 

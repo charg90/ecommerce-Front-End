@@ -1,7 +1,7 @@
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./producto.css";
-const Producto = ({ nombre, usuario, precio, id }) => {
+const Producto = ({ nombre, usuario, precio, id, img }) => {
   const navigate = useNavigate();
 
   const handlerClick = () => {
