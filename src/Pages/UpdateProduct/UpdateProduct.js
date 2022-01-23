@@ -24,14 +24,17 @@ const UpdateProduct = () => {
         formData
       );
       const obj = {
+        product: id,
         nombre: data.nombre,
         precio: data.precio,
         descripcion: data.descripcion,
         img: info.url,
-        usuario: p.id,
+        usuario: p.usuario,
       };
-      dispatch(updateProducts(id, obj));
-      console.log("gol");
+
+      dispatch(updateProducts(obj));
+
+      console.log(obj);
     } catch (err) {
       console.log(err);
     }

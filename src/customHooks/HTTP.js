@@ -6,7 +6,7 @@ import {
   FETCH_ELIMINATE,
 } from "../reducer/actions/products";
 import axios from "axios";
-import { BASE_URL } from "./../constants/constants";
+import { BASE_URL, PRODUCTS } from "./../constants/constants";
 
 export const useGet = (endpoint, token = null) => {
   const [data, setData] = useState("");
@@ -74,17 +74,16 @@ export const useDeleteData = async (endpoint, id) => {
   }
 };
 
-export const usePost = (endpoint, obj) => {
-  /*
+export const usePut = (id, obj) => {
   const token = window.localStorage.getItem(`token`);
   const newToken = JSON.parse(token);
-  */
+
   const [data, setData] = useState("");
   const [error, setError] = useState("");
-  const postData = async () => {
+  const putData = async () => {
     try {
-      console.log(endpoint, obj);
-      const data = await axios.post(`${BASE_URL}/${endpoint}`, obj);
+      console.log(obj);
+      const data = await axios.put(`${BASE_URL}/${PRODUCTS}/${id}`, obj);
       setData(data);
     } catch (err) {
       console.log(err);
@@ -93,8 +92,8 @@ export const usePost = (endpoint, obj) => {
     return data, error;
   };
   useEffect(() => {
-    postData();
-  }, [endpoint]);
+    putData();
+  }, [id]);
 
   return [data, error];
 };

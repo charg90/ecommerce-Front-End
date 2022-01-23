@@ -11,16 +11,18 @@ const ProfileProducts = ({ nombre, precio, id, eliminateProduct, img }) => {
     eliminateProduct(id);
   };
   return (
-    <Col lg={2} md={4} sm={12}>
+    <Col lg={3} md={4} sm={12}>
       <Card className=" ">
         <Card.Img
           variant="top"
           src={`${img}`}
-          style={{ width: "9rem", height: "9rem" }}
+          className="card-title text-center"
         />
         <Card.Body>
-          <Card.Title className="card-title">{nombre}</Card.Title>
-          <Card.Title>precio:{precio}$</Card.Title>
+          <Card.Title className="card-title text-center">{nombre}</Card.Title>
+          <Card.Title className="card-title text-center">
+            precio:{precio}$
+          </Card.Title>
         </Card.Body>
         <Button
           variant="outline-primary"

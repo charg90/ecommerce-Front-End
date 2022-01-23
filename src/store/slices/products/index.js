@@ -49,7 +49,7 @@ export const delProducts = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      return id;
+      return data;
     } catch (err) {
       console.log(err);
       rejectWithValue(err);
@@ -59,16 +59,20 @@ export const delProducts = createAsyncThunk(
 
 export const updateProducts = createAsyncThunk(
   "productos/updateProducts",
-  async (id, obj, { rejectWithValue }) => {
-    console.log(id, obj);
+  async (obj, { rejectWithValue }) => {
+    console.log(obj);
     const jwt = localStorage.getItem("jwt");
     const token = JSON.parse(jwt);
     try {
-      const { data } = await axios.put(`${BASE_URL}/${PRODUCTS}/${id}`, obj, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const { data } = await axios.put(
+        `${BASE_URL}/${PRODUCTS}/${obj.product}`,
+        obj,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       console.log(data);
-      return id, data;
+      return data;
     } catch (err) {
       console.log(err);
       rejectWithValue(err);
@@ -130,9 +134,11 @@ export const productsSlice = createSlice({
     },
     [updateProducts.fulfilled]: (state, { payload }) => {
       state.loading = "false";
-      state.producto = state.producto.map(
-        (p) => p.id === payload.id && state.producto === payload.data
-      );
+      state.producto = state.producto.map((p) => {
+        if (p.id == payload.id) {
+          return { ...p, ...payload };
+        }
+      });
       state.success = "success";
     },
     [updateProducts.rejected]: (state, action) => {
@@ -142,5 +148,4 @@ export const productsSlice = createSlice({
   },
 });
 
-//export const { addProduct } = productsSlice.actions;
 export default productsSlice.reducer;
