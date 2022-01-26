@@ -1,25 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Form, Button } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import "./navBar.css";
 import { useSelector } from "react-redux";
 const NavTop = () => {
   const auth = useSelector((state) => state.auth);
   return (
-    <Navbar sticky="top" expand="sm" className="navBarBg">
-      <Navbar.Toggle className="" />
-      <Navbar.Brand className="brandLetter    " href="/">
-        MERCADO GAMER
-      </Navbar.Brand>
+    <Navbar sticky="top" expand="sm" className="navBarBg ">
+      <Container>
+        <Navbar.Brand className="brandLetter  " href="/">
+          MERCADO GAMER
+        </Navbar.Brand>
+        <Navbar.Toggle />
 
-      <Navbar.Collapse>
-        <div className="d-flex flex-column justify-content-center">
-          <Nav>
+        <Navbar.Collapse>
+          <Nav className="">
             <Nav.Link>
               <Link to="/login" className="navLink">
                 Login
               </Link>
             </Nav.Link>
+
             <Nav.Link>
               <Link to="/register" className="navLink">
                 Registro
@@ -30,16 +31,11 @@ const NavTop = () => {
                 Productos
               </Link>
             </Nav.Link>
-            <Form className="d-flex px-2">
-              <Form.Control type="search" placeholder="Encuentra Aqui" />
-              <Button className="navButton btn px-3" size="sm">
-                Buscar...
-              </Button>
-            </Form>
+
             {!!auth.auth && (
               <NavDropdown
                 title={`Bienvenido ${auth.usuario?.nombre}`}
-                className="navLink"
+                className="navLink   "
               >
                 <NavDropdown.Item>
                   <Link to={`/profile/${auth.usuario.id}`} className="navLink">
@@ -54,8 +50,8 @@ const NavTop = () => {
               </NavDropdown>
             )}
           </Nav>
-        </div>
-      </Navbar.Collapse>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };

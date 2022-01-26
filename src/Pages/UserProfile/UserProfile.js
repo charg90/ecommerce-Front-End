@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Button, Col, Image } from "react-bootstrap";
+import { Container, Row, Button, Card, Col, Image } from "react-bootstrap";
 import { getProducts, delProducts } from "./../../store/slices/products";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileProducts from "./ProfileProducts";
@@ -26,19 +26,21 @@ const UserProfile = () => {
     dispatch(getProducts(id));
   }, []);
   return (
-    <Container className="">
-      <Row className="mt-5 letras  rowUserProfile ">
+    <Container>
+      <Row className="mt-5 letras  rowUserProfile d-flex justify-content-center ">
         <Col lg={6} md={4} sm={12} className="  ">
           <Image src={usuario.img} className="imgUserProfile" />
         </Col>
-        <Col lg={4} md={4} sm={12}>
-          <p>
-            Nombre:<span className="text-dark">{usuario.nombre}</span>
+        <Col lg={4} md={6} sm={12}>
+          <p className="mx-5">
+            Nombre:<span className="text-dark ">{usuario.nombre}</span>
           </p>
-          <p>
+          <p className="mx-5">
             Email:<span className="text-dark">{usuario.email}</span>
           </p>
-          <Button onClick={handlerClick}>Vender</Button>
+          <Button onClick={handlerClick} className="mx-5">
+            Vender
+          </Button>
         </Col>
       </Row>
 

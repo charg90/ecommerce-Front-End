@@ -11,7 +11,7 @@ const ProfileProducts = ({ nombre, precio, id, eliminateProduct, img }) => {
     eliminateProduct(id);
   };
   return (
-    <Col lg={3} md={4} sm={12}>
+    <Col lg={3} md={4} sm={3}>
       <Card className=" ">
         <Card.Img
           variant="top"
