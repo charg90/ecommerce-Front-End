@@ -26,25 +26,37 @@ const UserProfile = () => {
     dispatch(getProducts(id));
   }, []);
   return (
-    <Container>
-      <Row className="mt-5 letras  rowUserProfile d-flex justify-content-center ">
-        <Col lg={6} md={4} sm={12} className="  ">
-          <Image src={usuario.img} className="imgUserProfile" />
-        </Col>
-        <Col lg={4} md={6} sm={12}>
-          <p className="mx-5">
-            Nombre:<span className="text-dark ">{usuario.nombre}</span>
-          </p>
-          <p className="mx-5">
-            Email:<span className="text-dark">{usuario.email}</span>
-          </p>
-          <Button onClick={handlerClick} className="mx-5">
-            Vender
-          </Button>
+    <Container className="h-100">
+      <Row className="mt-5 letras  rowUserProfile d-flex justify-content-center    ">
+        <Col lg={6} md={6} sm={12} className="d-flex  ">
+          <Row>
+            <Col
+              lg={6}
+              md={6}
+              sm={12}
+              className="d-flex justify-content-center"
+            >
+              <Image
+                src={usuario.img}
+                className="imgUserProfile rounded-circle border border-5-primary"
+              />
+            </Col>
+            <Col lg={6} md={6} sm={6}>
+              <p className="">
+                Nombre:<span className="text-dark ">{usuario.nombre}</span>
+              </p>
+              <p className="text">
+                Email:<span className="text-dark">{usuario.email}</span>
+              </p>
+              <Button onClick={handlerClick} className="mx-5">
+                Vender
+              </Button>
+            </Col>
+          </Row>
         </Col>
       </Row>
 
-      <Row className="mt-5  justify-content-center letras">
+      <Row className="mt-5  justify-content-center letras h-25">
         {producto.map((p) => (
           <ProfileProducts
             {...p}

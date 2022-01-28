@@ -22,3 +22,11 @@
   width: 6rem;
   height: 6rem;
 }
+
+.bg {
+  background-color: #ffe600;
+}
+
+.text {
+  font-size: 2vh;
+}

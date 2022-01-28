@@ -1,20 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Col, Row } from "react-bootstrap";
 import "./navBar.css";
 import { useSelector } from "react-redux";
 const NavTop = () => {
   const auth = useSelector((state) => state.auth);
   return (
     <Navbar sticky="top" expand="sm" className="navBarBg ">
-      <Container>
-        <Navbar.Brand className="brandLetter  " href="/">
-          MERCADO GAMER
-        </Navbar.Brand>
-        <Navbar.Toggle />
+      <Navbar.Brand className="brandLetter   " href="/">
+        MERCADO GAMER
+      </Navbar.Brand>
+      <Navbar.Toggle />
 
-        <Navbar.Collapse>
-          <Nav className="">
+      <Row className="d-flex ">
+        <Navbar.Collapse className="">
+          <Nav className=" ">
             <Nav.Link>
               <Link to="/login" className="navLink">
                 Login
@@ -35,7 +35,7 @@ const NavTop = () => {
             {!!auth.auth && (
               <NavDropdown
                 title={`Bienvenido ${auth.usuario?.nombre}`}
-                className="navLink   "
+                className="navLink    "
               >
                 <NavDropdown.Item>
                   <Link to={`/profile/${auth.usuario.id}`} className="navLink">
@@ -51,7 +51,7 @@ const NavTop = () => {
             )}
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      </Row>
     </Navbar>
   );
 };

@@ -12,11 +12,11 @@ const ProfileProducts = ({ nombre, precio, id, eliminateProduct, img }) => {
   };
   return (
     <Col lg={3} md={4} sm={3}>
-      <Card className=" ">
+      <Card className="">
         <Card.Img
           variant="top"
           src={`${img}`}
-          className="card-title text-center"
+          className="card-title text-center "
         />
         <Card.Body>
           <Card.Title className="card-title text-center">{nombre}</Card.Title>
