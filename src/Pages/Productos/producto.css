@@ -6,3 +6,8 @@
 .letras:hover {
   color: #5b64d6;
 }
+
+.img-style {
+  width: 6rem;
+  height: 6rem;
+}

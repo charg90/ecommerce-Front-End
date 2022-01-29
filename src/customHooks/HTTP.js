@@ -34,7 +34,7 @@ export const useGet = (endpoint, token = null) => {
 
   useEffect(() => {
     fetchData();
-  }, [endpoint]);
+  }, []);
 
   return [state, data];
 };

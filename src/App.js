@@ -38,9 +38,8 @@ function App() {
           <Route path="/verify/:uid" element={<Verify />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-        {/*
+
         <Footer />
-        */}
       </Router>
     </Provider>
   );

@@ -12,46 +12,44 @@ const NavTop = () => {
       </Navbar.Brand>
       <Navbar.Toggle />
 
-      <Row className="d-flex ">
-        <Navbar.Collapse className="">
-          <Nav className=" ">
-            <Nav.Link>
-              <Link to="/login" className="navLink">
-                Login
-              </Link>
-            </Nav.Link>
+      <Navbar.Collapse className=" justify-content-end">
+        <Nav className=" ">
+          <Nav.Link>
+            <Link to="/login" className="navLink">
+              Login
+            </Link>
+          </Nav.Link>
 
-            <Nav.Link>
-              <Link to="/register" className="navLink">
-                Registro
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/products" className="navLink">
-                Productos
-              </Link>
-            </Nav.Link>
+          <Nav.Link>
+            <Link to="/register" className="navLink">
+              Registro
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/products" className="navLink">
+              Productos
+            </Link>
+          </Nav.Link>
 
-            {!!auth.auth && (
-              <NavDropdown
-                title={`Bienvenido ${auth.usuario?.nombre}`}
-                className="navLink    "
-              >
-                <NavDropdown.Item>
-                  <Link to={`/profile/${auth.usuario.id}`} className="navLink">
-                    Mi perfil
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to="/profile/id" className="navLink">
-                    Log Out
-                  </Link>
-                </NavDropdown.Item>
-              </NavDropdown>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Row>
+          {!!auth.auth && (
+            <NavDropdown
+              title={`Bienvenido ${auth.usuario?.nombre}`}
+              className="navLink    "
+            >
+              <NavDropdown.Item>
+                <Link to={`/profile/${auth.usuario.id}`} className="navLink">
+                  Mi perfil
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/profile/id" className="navLink">
+                  Log Out
+                </Link>
+              </NavDropdown.Item>
+            </NavDropdown>
+          )}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 };
