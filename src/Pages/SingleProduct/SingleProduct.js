@@ -12,7 +12,11 @@ const SingleProduct = () => {
     <Container fluid className="align-items-center contenedor ">
       <Row>
         <Col md={4} className="mt-5">
-          <Image src={product.img} alt="no se encontro" />
+          <Image
+            src={product.img}
+            alt="no se encontro"
+            className="foto-Stylee"
+          />
         </Col>
         <Col md={8} className="mt-5">
           <h2 className="letras">nombre:{product.nombre}</h2>

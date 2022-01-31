@@ -26,9 +26,9 @@ const UserProfile = () => {
     dispatch(getProducts(id));
   }, []);
   return (
-    <Container className="h-100">
-      <Row className="mt-5 letras  rowUserProfile d-flex justify-content-center    ">
-        <Col lg={6} md={6} sm={12} className="d-flex  ">
+    <Container fluid className="vh-100 bgColor">
+      <Row className=" letras  rowUserProfile d-flex justify-content-center    ">
+        <Col lg={6} md={6} sm={12} className="d-flex mt-5 ">
           <Row>
             <Col
               lg={6}

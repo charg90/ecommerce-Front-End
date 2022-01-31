@@ -36,6 +36,6 @@
   height: 6rem;
 }
 
-.card-shadow :hover {
-  box-shadow: 1px -9px 6px 5px rgba(0, 0, 0, 0.67);
+.bgColor {
+  background-color: #e8e8e8;
 }

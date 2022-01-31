@@ -48,9 +48,9 @@ const Register = () => {
     }
   };
   return (
-    <Container className=" ">
-      <Row className="d-flex justify-content-center mt-5">
-        <Col md={6}>
+    <Container fluid className=" vh-100 contenedorBg">
+      <Row className="d-flex justify-content-center  ">
+        <Col md={6} className="mt-5">
           <Form
             onSubmit={handleSubmit(submitForm)}
             enctype="multipart/form-data"
@@ -106,7 +106,7 @@ const Register = () => {
         </Col>
       </Row>
       <Row>
-        <Col className="d-flex justify-content-center mt-5 show">
+        <Col className="d-flex justify-content-center  show">
           <p>{response}</p>
         </Col>
       </Row>

@@ -121,7 +121,7 @@ export const productsSlice = createSlice({
     [delProducts.fulfilled]: (state, { payload }) => {
       console.log(payload);
       state.loading = "false";
-      state.producto = state.producto.filter((p) => p.id !== payload);
+      state.producto = state.producto.filter((p) => p.id !== payload.id);
       state.success = "success";
     },
     [delProducts.rejected]: (state, action) => {

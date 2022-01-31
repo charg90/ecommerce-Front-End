@@ -6,11 +6,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProducts } from "./../../store/slices/products";
 import axios from "axios";
+import "./updateProduct.css";
 const UpdateProduct = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((state) => state.products.producto);
-  const p = product.find((pro) => pro.id == id);
+  const p = product.find((pro) => pro.id === id);
   const { register, handleSubmit } = useForm();
 
   const submitForm = async (data) => {
@@ -33,17 +34,15 @@ const UpdateProduct = () => {
       };
 
       dispatch(updateProducts(obj));
-
-      console.log(obj);
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <Container>
-      <Row className="d-flex justify-content-center mt-5">
-        <Col md={6} className="text-center">
+    <Container fluid className="vh-100 backgroundStyle">
+      <Row className="d-flex justify-content-center ">
+        <Col md={6} className="text-center mt-5">
           <Form enctype="multipart/form-data">
             <Form.Group>
               <Form.Label>Nombre</Form.Label>

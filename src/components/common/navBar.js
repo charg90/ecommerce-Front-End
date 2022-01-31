@@ -54,4 +54,4 @@ const NavTop = () => {
   );
 };
 
-export default NavTop;
+export default React.memo(NavTop);
