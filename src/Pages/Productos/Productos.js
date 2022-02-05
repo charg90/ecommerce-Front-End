@@ -8,12 +8,10 @@ const Products = () => {
   const [{ products }] = useGet(PRODUCTS);
 
   return (
-    <Container fluid className="contenedor">
-      <Row>
-        {products.map((p) => (
-          <Producto {...p} key={p.id} />
-        ))}
-      </Row>
+    <Container fluid className="">
+      {products.map((p) => (
+        <Producto {...p} key={p.id} />
+      ))}
     </Container>
   );
 };

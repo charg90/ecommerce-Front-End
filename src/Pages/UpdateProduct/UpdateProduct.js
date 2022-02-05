@@ -9,17 +9,18 @@ import axios from "axios";
 import "./updateProduct.css";
 const UpdateProduct = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const product = useSelector((state) => state.products.producto);
-  const p = product.find((pro) => pro.id === id);
+  const p = product.find((pro) => pro.id == id);
   const { register, handleSubmit } = useForm();
 
   const submitForm = async (data) => {
     const formData = new FormData();
     formData.append("file", data.image[0]);
     formData.append("upload_preset", "sgpqsyxq");
-
     try {
+      
       const { data: info } = await axios.post(
         "https://api.cloudinary.com/v1_1/del3mby9y/image/upload",
         formData
@@ -34,6 +35,9 @@ const UpdateProduct = () => {
       };
 
       dispatch(updateProducts(obj));
+      
+
+      navigate(`/product/${id}`);
     } catch (err) {
       console.log(err);
     }

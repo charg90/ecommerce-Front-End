@@ -37,6 +37,15 @@ const authSlice = createSlice({
     status: null,
     auth: false,
   },
+  reducers: {
+    logOut: (state, action) => {
+      console.log("hol");
+      state.loading = false;
+      state.status = "succes";
+      state.auth = false;
+    },
+  },
+
   extraReducers: {
     [getAuth.pending]: (state, action) => {
       state.loading = true;
@@ -58,5 +67,5 @@ const authSlice = createSlice({
     },
   },
 });
-
+export const { logOut } = authSlice.actions;
 export default authSlice.reducer;

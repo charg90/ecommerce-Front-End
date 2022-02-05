@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Col, Row } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "./navBar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "./../../store/slices/auth/index";
 const NavTop = () => {
   const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   return (
     <Navbar sticky="top" expand="sm" className="navBarBg ">
       <Navbar.Brand className="brandLetter   " href="/">
@@ -41,10 +44,11 @@ const NavTop = () => {
                   Mi perfil
                 </Link>
               </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to="/profile/id" className="navLink">
-                  Log Out
-                </Link>
+              <NavDropdown.Item
+                className="navLink"
+                onClick={() => dispatch(logOut())}
+              >
+                Log Out
               </NavDropdown.Item>
             </NavDropdown>
           )}

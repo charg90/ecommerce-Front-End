@@ -1,10 +1,6 @@
 import { useEffect, useReducer, useState } from "react";
 import { productsReducer, initialState } from "./../reducer/products";
-import {
-  FETCHING,
-  FETCH_SUCCESS,
-  FETCH_ELIMINATE,
-} from "../reducer/actions/products";
+import { FETCH_SUCCESS, FETCH_ELIMINATE } from "../reducer/actions/products";
 import axios from "axios";
 import { BASE_URL, PRODUCTS } from "./../constants/constants";
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Button, Card, Col, Image } from "react-bootstrap";
+import { Container, Row, Button, Col, Image } from "react-bootstrap";
 import { getProducts, delProducts } from "./../../store/slices/products";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileProducts from "./ProfileProducts";
@@ -56,7 +56,7 @@ const UserProfile = () => {
         </Col>
       </Row>
 
-      <Row className="mt-5  justify-content-center letras h-25">
+      <Row className="mt-3  justify-content-center letras h-25">
         {producto.map((p) => (
           <ProfileProducts
             {...p}

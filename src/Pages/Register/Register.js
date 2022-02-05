@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { newUser } from "./../../customHooks/newUser";
-import { useNavigate } from "react-router-dom";
 import { schema } from "./schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Axios from "axios";
@@ -10,7 +9,7 @@ import "./register.css";
 
 const Register = () => {
   const [response, setResponse] = useState("");
-  let navigate = useNavigate();
+
   const {
     register,
     handleSubmit,

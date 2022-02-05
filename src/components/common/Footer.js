@@ -4,13 +4,13 @@ const Footer = () => {
   return (
     <Container fluid className="h-25 footerStyle">
       <Row className="">
-        <Col className="text-center">
+        <Col md={4} className="text-center">
           <p>Copyright 2021</p>
         </Col>
-        <Col className="text-center">
+        <Col md={4} className="text-center">
           <p>calle siempre falsa 123 </p>
         </Col>
-        <Col className="text-center">
+        <Col md={4} sm={12} className="text-center">
           <p>Vendiendo desde 2021 </p>
         </Col>
       </Row>
