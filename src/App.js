@@ -16,6 +16,7 @@ import ProductoNuevo from "./Pages/ProductoNuevo";
 import UpdateProduct from "./Pages/UpdateProduct";
 import Footer from "./components/common/Footer";
 import ProtectedRoutes from "./components/common/ProtectedRoutes/ProtectedRoutes";
+import CompraExitosa from "./Pages/CompraExitosa";
 //redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -34,6 +35,7 @@ function App() {
             <Route path="/profile/:id" element={<UserProfile />} />
             <Route path="/productoNuevo" element={<ProductoNuevo />} />
             <Route path="/updateProduct/:id" element={<UpdateProduct />} />
+            <Route path="/CompraExitosa" element={<CompraExitosa />} />
           </Route>
           <Route path="/verify/:uid" element={<Verify />} />
           <Route path="*" element={<Navigate to="/" />} />

@@ -39,10 +39,10 @@ const authSlice = createSlice({
   },
   reducers: {
     logOut: (state, action) => {
-      console.log("hol");
       state.loading = false;
       state.status = "succes";
       state.auth = false;
+      localStorage.removeItem("jwt");
     },
   },
 
@@ -58,7 +58,6 @@ const authSlice = createSlice({
       state.loading = false;
       state.status = "success";
       state.auth = true;
-      localStorage.setItem("token", payload.token);
     },
     [getAuth.rejected]: (state) => {
       state.loading = false;

@@ -1,1 +1,1 @@
-export { default } from "./compraExitosa.js"
+export { default } from "./CompraExitosa.js";
