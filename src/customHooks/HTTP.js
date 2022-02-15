@@ -6,6 +6,8 @@ import { BASE_URL, PRODUCTS } from "./../constants/constants";
 
 export const useGet = (endpoint, token = null) => {
   const [data, setData] = useState("");
+  const [loading ,setLoading] =useState(true)
+  const [error,setError] = useState("")
   const jwt = window.localStorage.getItem(`token`);
   const newToken = JSON.parse(token);
   const [state, dispatch] = useReducer(productsReducer, initialState);
@@ -22,10 +24,12 @@ export const useGet = (endpoint, token = null) => {
         payload: { data: result },
       });
       setData(result);
+      setLoading(false)
     } catch (err) {
       console.log(err);
+      setError(err)
     }
-    return data;
+    return [data,loading,error];
   };
 
   useEffect(() => {

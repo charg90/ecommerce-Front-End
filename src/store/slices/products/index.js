@@ -56,7 +56,6 @@ export const delProducts = createAsyncThunk(
     }
   }
 );
-
 export const updateProducts = createAsyncThunk(
   "productos/updateProducts",
   async (obj, { rejectWithValue }) => {
@@ -90,7 +89,7 @@ export const productsSlice = createSlice({
   extraReducers: {
     [getProducts.pending]: (state, action) => {
       state.loading = true;
-      state.loading = "loading";
+      state.status = "loading";
     },
     [getProducts.fulfilled]: (state, { payload }) => {
       state.producto = payload;

@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Button, Col, Image } from "react-bootstrap";
+import { Container, Row, Button, Col, Image, Spinner } from "react-bootstrap";
 import { getProducts, delProducts } from "./../../store/slices/products";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileProducts from "./ProfileProducts";
 import "./userProfile.css";
+import Spinners from "../../components/common/spinner/Spinner";
 const UserProfile = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -13,7 +14,6 @@ const UserProfile = () => {
   const { usuario } = useSelector((state) => state.auth);
 
   const handlerClick = () => {
-    console.log("clik");
     navigate("/productoNuevo");
   };
 
@@ -25,6 +25,8 @@ const UserProfile = () => {
   useEffect(() => {
     dispatch(getProducts(id));
   }, []);
+
+  producto.loading && <Spinners />;
   return (
     <Container fluid className="vh-100 bgColor">
       <Row className=" letras  rowUserProfile d-flex justify-content-center    ">

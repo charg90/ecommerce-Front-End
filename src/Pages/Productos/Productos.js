@@ -1,5 +1,5 @@
 import { useGet } from "./../../customHooks/HTTP";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Producto from "./Producto";
 import { PRODUCTS } from "./../../constants/constants";
 import "./productos.css";
