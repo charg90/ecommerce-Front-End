@@ -8,7 +8,7 @@ const Products = () => {
   const [{ products }] = useGet(PRODUCTS);
 
   return (
-    <Container fluid className="vh-100">
+    <Container fluid className="">
       {products.map((p) => (
         <Producto {...p} key={p.id} />
       ))}

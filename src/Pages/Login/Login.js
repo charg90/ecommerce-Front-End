@@ -27,7 +27,7 @@ const Login = () => {
   }
 
   return (
-    <Container fluid className="contenedor">
+    <Container fluid className="">
       <Row className=" justify-content-center text-center">
         <Col md={4} className="mt-5">
           <Form onSubmit={handleSubmit(submitForm)}>

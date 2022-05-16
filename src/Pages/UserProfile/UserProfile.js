@@ -28,8 +28,8 @@ const UserProfile = () => {
 
   producto.loading && <Spinners />;
   return (
-    <Container fluid className="vh-100 bgColor">
-      <Row className=" letras  rowUserProfile d-flex justify-content-center    ">
+    <Container fluid className="  bgColor">
+      <Row className=" letras  rowUserProfile  d-flex justify-content-center  ">
         <Col lg={6} md={6} sm={12} className="d-flex mt-5 ">
           <Row>
             <Col

@@ -47,7 +47,7 @@ const Register = () => {
     }
   };
   return (
-    <Container fluid className=" vh-100 contenedorBg">
+    <Container fluid className="  ">
       <Row className="d-flex justify-content-center  ">
         <Col md={6} className="mt-5">
           <Form
