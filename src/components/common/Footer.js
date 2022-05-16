@@ -2,7 +2,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import "./footer.css";
 const Footer = () => {
   return (
-    <Container fluid fixed="bottom" className="h-25 footerStyle">
+    <Container fluid fixed="bottom" className="h-25 footerStyle mt-auto">
       <Row className="">
         <Col md={4} className="text-center">
           <p>Copyright 2021</p>
