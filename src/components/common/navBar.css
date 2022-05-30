@@ -2,7 +2,10 @@
   background-color: #ffe600;
   padding-top: 0;
 }
-
+.icon {
+  text-decoration: none;
+  color: #2d3277 !important;
+}
 .navItems {
   font-family: roboto, sans-serif;
   text-decoration: none;

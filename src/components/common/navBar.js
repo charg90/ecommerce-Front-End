@@ -10,8 +10,10 @@ const NavTop = () => {
 
   return (
     <Navbar sticky="top" expand="sm" className="navBarBg ">
-      <Navbar.Brand className="brandLetter   " href="/">
-        MERCADO GAMER
+      <Navbar.Brand className="brandLetter  ">
+        <Link to="/" className="icon">
+          MERCADO GAMER
+        </Link>
       </Navbar.Brand>
       <Navbar.Toggle />
 
